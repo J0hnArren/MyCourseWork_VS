@@ -38,7 +38,7 @@ int score = 0;
 */
 void GameProcess(sf::RenderWindow &window, Player &player1, Collision &collision, Records &records,
                  Platforms &platforms, sf::Text &timerText, sf::Text &scoreText, const sf::Vector2u &windowSize,
-                 sf::Sprite &bgSprite, const float &scaleValue, GameMenu &gameMenu,
+                 const sf::Sprite &bgSprite, const float &scaleValue, GameMenu &gameMenu,
                  sf::Sound &sound0, sf::Sound &sound1, sf::Sound &sound2, sf::Sound &deathSound);
 /**
  @brief Проверка состояния игрока
@@ -167,7 +167,7 @@ int main()
 
 void GameProcess(sf::RenderWindow &window, Player &player1, Collision &collision, Records &records,
                  Platforms &platforms, sf::Text &timerText, sf::Text &scoreText, const sf::Vector2u &windowSize,
-                 sf::Sprite &bgSprite, const float &scaleValue, GameMenu &gameMenu,
+                 const sf::Sprite &bgSprite, const float &scaleValue, GameMenu &gameMenu,
                  sf::Sound &sound0, sf::Sound &sound1, sf::Sound &sound2, sf::Sound &deathSound){
     // Music
     sf::Music track4;

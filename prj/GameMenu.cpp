@@ -93,6 +93,8 @@ bool GameMenu::Menu(sf::RenderWindow &window, const sf::Sprite &bgImage, Player 
             }
         }
         window.display();
+
+        sf::Vector2f playerPos(player.GetSprite()->getPosition().x, player.GetSprite()->getPosition().y);
         switch (buttonNumber) {
             case -1:
                 continue;
@@ -102,6 +104,7 @@ bool GameMenu::Menu(sf::RenderWindow &window, const sf::Sprite &bgImage, Player 
                 break;
             case 1:
                 ShowRecords(window, bgImage, player);
+                player.GetSprite()->setPosition(playerPos);
                 buttonNumber = -1;
                 clock.restart();
                 break;
@@ -233,6 +236,7 @@ bool GameMenu::Pause(
             }
         }
         window.display();
+        sf::Vector2f playerPos(player.GetSprite()->getPosition().x, player.GetSprite()->getPosition().y);
         switch (buttonNumber) {
             case -1:
                 continue;
@@ -241,6 +245,7 @@ bool GameMenu::Pause(
                 break;
             case 1:
                 ShowRecords(window, bgImage, player);
+                player.GetSprite()->setPosition(playerPos);
                 buttonNumber = -1;
                 clock.restart();
                 break;
@@ -284,6 +289,9 @@ bool GameMenu::TryAgain(sf::RenderWindow &window, const sf::Sprite &bgImage, Pla
     soundClick.setVolume(20);
     soundRoll.setVolume(10);
 
+    sf::Vector2f playerPos(player.GetSprite()->getPosition().x, player.GetSprite()->getPosition().y);
+    player.GetSprite()->setPosition(winSize.x * 2.3f / 5.f, winSize.y * 4.f / 5.f);
+
     clock.restart();
     while (MainMenu) {
 
@@ -299,9 +307,9 @@ bool GameMenu::TryAgain(sf::RenderWindow &window, const sf::Sprite &bgImage, Pla
         for (const sf::RectangleShape &sp : *platforms.GetPlatform()) {
             window.draw(sp);
         }
-        window.draw(*player.GetSprite());
         window.draw(menuSquare);
         window.draw(textPause);
+        window.draw(*player.GetSprite());
 
         int currFrame = clock.getElapsedTime().asMilliseconds() / 16;
         if (currFrame > 10) {
@@ -334,6 +342,8 @@ bool GameMenu::TryAgain(sf::RenderWindow &window, const sf::Sprite &bgImage, Pla
 
         }
     }
+
+    player.GetSprite()->setPosition(playerPos);
     return MainMenu;
 }
 
@@ -381,6 +391,8 @@ void GameMenu::ShowRecords(sf::RenderWindow &window, const sf::Sprite &bgImage, 
                 window.close();
         }
         window.clear();
+
+        player.GetSprite()->setPosition(winSize.x * 2.3f / 5.f, winSize.y * 4.f / 5.f);
 
         window.draw(bgImage);
         window.draw(menuSquare);

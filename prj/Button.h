@@ -15,7 +15,7 @@ public:
     Button() = default;
     Button(const Button&) = default;
     /**
-     @brief Конструктор назвачает поля атрибутов кноки
+     @brief Конструктор назвачает поля атрибутов кнопки
      @details Инициализирует следующие поля: size1, button, beginRect, sizeRect, size2, nextBeginRect, nextSizeRect, text
      @param texture_ ссылка на текстуру
      @param buttonSize константная ссылка на размер первого состояния кнопки

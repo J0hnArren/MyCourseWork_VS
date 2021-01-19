@@ -14,39 +14,40 @@ sf::Text Records::ShowTable(const int& textSize, const sf::Color &color) {
     text.setFont(*FilesBank::getInstance().getFonts("timer", 0));
     text.setFillColor(color);
     text.setCharacterSize(textSize);
-    int lName = 0, lPoint = 0, lTime = 0;
+    int lName = 0, lScore = 0, lTime = 0;
     std::string name = " NAME ", points = " SCORES ", time = " TIME";
     int maxName = name.length();
-    int maxPoint = points.length();
+    int maxScore = points.length();
     for (const auto & i : top) {
         if (i.name.length() > lName)
             lName = i.name.length();
 
-        if (std::to_string(i.scores).length() > lPoint)
-            lPoint = std::to_string(i.scores).length();
+        if (std::to_string(i.scores).length() > lScore)
+            lScore = std::to_string(i.scores).length();
 
         if (std::to_string(i.time).length() > lTime)
             lTime = std::to_string(i.time).length();
-    }
-    if (lName <= maxName)
-        lName = maxName;
 
-    if (lPoint <= maxPoint)
-        lPoint = maxPoint;
+        if (lName <= maxName)
+            lName = maxName;
+
+        if (lScore <= maxScore)
+            lScore = maxScore;
+    }
 
     std::string str;
     std::stringstream stream;
-    stream << AddSpace(2) << name << AddSpace(1 + lName + maxName) <<
-           points << AddSpace(1 + lPoint + maxPoint) << time << "\n";
+    stream << AddSpace(2) << name << AddSpace(20) <<
+           points << AddSpace(20) << time << "\n";
 
     if(top[0] != defaultTop)
         for (ptrdiff_t i = 0; i < top.size(); i++) {
-            int space1 = maxName - int(top[i].name.length()) + int(name.size()) + 1 + lName + maxName - int(top[i].name.length() + 1);
-            int space2 = maxName + int(points.size()) + 1 + lPoint + maxPoint - int(std::to_string(top[i].scores).length() + 1);
-
+            const int space1 = 2 + int(std::to_string(i + 1).length()) + 20 - int(top[i].name.length()) + int(maxName - top[i].name.length());
+            const int space2 = 20 - maxScore + int(maxScore - std::to_string(top[i].scores).length());
+            std::cout << top[i].name.length() << std::endl;
             stream << std::to_string(i + 1) << AddSpace(2) << top[i].name <<
                       AddSpace(space1) << std::to_string(top[i].scores) <<
-                      AddSpace(space2) << std::to_string(top[i].time);
+                      AddSpace(space1 + space2) << std::to_string(top[i].time);
 
             if (i != top.size() - 1)
                 stream << "\n";
@@ -85,20 +86,22 @@ bool Records::read() {
 
 bool Records::write(const std::string &name, const int& score, const int &gameTime) {
     bool isNewPlayer = true;
+    const std::string& newName = name;
     for (Top& i : top) {
-        if (i.name == name) {
+        if (i.name == newName) {
             i.scores = score;
             i.time = gameTime;
             isNewPlayer = false;
         }
     }
+
     if (isNewPlayer)
         top.push_back({ name, score, gameTime });
 
     std::sort(top.begin(), top.end(), [](const Top& lhs, const Top& rhs) {
         return lhs.scores > rhs.scores;
     });
-    if(top.size() > sizeTop)
+    if (top.size() > sizeTop)
         top.pop_back();
     return write();
 }
