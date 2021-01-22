@@ -31,36 +31,36 @@ include_directories(libs)
 
 set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}")
 install(FILES 
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/openal32.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-audio-d-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-graphics-d-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-system-d-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-window-d-2.dll 
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/openal32.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-audio-d-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-graphics-d-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-system-d-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-window-d-2.dll 
 	CONFIGURATIONS Debug 
 	DESTINATION ${PROJECT_BINARY_DIR}/prj/Debug)
 install(FILES 
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/openal32.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-audio-d-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-graphics-d-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-system-d-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-window-d-2.dll 
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/openal32.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-audio-d-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-graphics-d-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-system-d-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-window-d-2.dll 
 	CONFIGURATIONS Debug 
 	DESTINATION ${PROJECT_BINARY_DIR}/prj)
 	
 install(FILES 
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/openal32.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-audio-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-graphics-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-system-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-window-2.dll 
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/openal32.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-audio-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-graphics-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-system-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-window-2.dll 
 	CONFIGURATIONS Release 
 	DESTINATION ${PROJECT_BINARY_DIR}/prj/Release)
 install(FILES 
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/openal32.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-audio-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-graphics-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-system-2.dll
-	${CMAKE_SOURCE_DIR}/libs/SFML/bin/sfml-window-2.dll 
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/openal32.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-audio-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-graphics-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-system-2.dll
+	${CMAKE_SOURCE_DIR}/libs/SFML-2.4.2/bin/sfml-window-2.dll 
 	CONFIGURATIONS Release 
 	DESTINATION ${PROJECT_BINARY_DIR}/prj)
 	
