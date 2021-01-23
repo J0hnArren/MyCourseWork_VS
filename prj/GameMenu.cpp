@@ -50,7 +50,7 @@ bool GameMenu::Menu(sf::RenderWindow &window, const sf::Sprite &bgImage, Player 
 
         sf::Event event{};
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+            if (event.type == sf::Event::Closed)
                 window.close();
 
             mousePos = sf::Mouse::getPosition(window);
