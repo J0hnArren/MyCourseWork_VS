@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Doxygen)
 option(BUILD_DOCUMENTATION "Create and install documentation (requires Doxygen)" ${DOXYGEN_FOUND})
 
-if(DOXYGEN_FOUND)
+if (DOXYGEN_FOUND)
 
 	set(DOXYGEN ${CMAKE_SOURCE_DIR}/doc/Doxyfile.in)
 	
@@ -28,7 +28,7 @@ endif()
 
 include_directories(prj)
 
-set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}")
+#set(CMAKE_INSTALL_PREFIX .)
 
 install(FILES 
 	${SFML_DIR}/bin/openal32.dll
@@ -40,15 +40,15 @@ install(FILES
 	${SFML_DIR}/bin/sfml-graphics-d-2.dll
 	${SFML_DIR}/bin/sfml-system-d-2.dll
 	${SFML_DIR}/bin/sfml-window-d-2.dll 
-	DESTINATION ${PROJECT_BINARY_DIR}/Play_Higher_Ground
+	DESTINATION ${CMAKE_INSTALL_PREFIX}
 )
 	
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/src 
-	DESTINATION ${PROJECT_BINARY_DIR}/Play_Higher_Ground)
+	DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/doc DESTINATION ${PROJECT_BINARY_DIR})
 
 add_subdirectory(prj)
 
-install(TARGETS ${PROJECT_NAME} DESTINATION ${PROJECT_BINARY_DIR}/Play_Higher_Ground)
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX})
