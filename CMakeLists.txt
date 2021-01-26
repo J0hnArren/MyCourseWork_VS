@@ -62,7 +62,7 @@ endif ()
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/src DESTINATION .)
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/doc DESTINATION .)
+#install(DIRECTORY ${CMAKE_SOURCE_DIR}/doc DESTINATION .)
 
 add_subdirectory(prj)
 
