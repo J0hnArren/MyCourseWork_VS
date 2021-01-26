@@ -1,2 +1,2 @@
 # HigherGroundGame
-Initial commit
+Simple platformer
